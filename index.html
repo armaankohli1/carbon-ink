@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Ink - Premium Signage & Vehicle Wraps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --cyan: #22d3ee;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+        }
+
+        body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            border-bottom: 1px solid #374151;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cyan);
+  background-color: var(--black);
+}
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .btn {
+            background-color: var(--cyan);
+            color: var(--black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #06b6d4;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--cyan), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--cyan);
+            color: var(--black);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--gray-900);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.1);
+            border-color: var(--cyan);
+        }
+
+        .service-icon {
+            color: var(--cyan);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray-300);
+        }
+
+        /* Portfolio Section */
+        .portfolio-carousel {
+            max-width: 896px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .portfolio-slide {
+            background-color: var(--gray-900);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #374151;
+            height: 24rem;
+            position: relative;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .carousel-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #9ca3af;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--cyan);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background-color: var(--gray-900);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #374151;
+            transition: border-color 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            border-color: var(--cyan);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+        }
+
+        .portfolio-item-content {
+            padding: 1rem;
+        }
+
+        .portfolio-item-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item-content p {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            color: var(--cyan);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text p {
+            color: var(--gray-300);
+        }
+
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .closed {
+            color: #ef4444;
+        }
+
+        .contact-form {
+            background-color: var(--gray-900);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #374151;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gray-300);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            color: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--cyan);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--cyan);
+            color: var(--black);
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #06b6d4;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #374151;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-text {
+            color: var(--gray-400);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        /* About section experience panel */
+.experience-panel {
+  height: 100%;
+  min-height: 320px;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.15),
+    rgba(0, 0, 0, 0.85)
+  );
+  border: 1px solid #374151;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.experience-content {
+  text-align: center;
+  max-width: 300px;
+}
+
+.experience-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+
+.experience-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.experience-text {
+  color: var(--gray-300);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.logo-image {
+  width: 140%;
+  height: 140%;
+  object-fit: cover;
+  transform: translateY(-120);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+           <div class="logo">
+  <div class="logo-circle">
+  <img
+    src="carbon ink logo.jpg"
+    alt="Carbon Ink Logo"
+    class="logo-image"
+  >
+</div>
+
+  <span>Carbon Ink</span>
+</div>
+
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="btn">Request Quote <i class="fas fa-calendar"></i></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Signage & Wraps</h1>
+            <p>Transform your vehicle or business with professional vehicle wraps, custom decals, and eye-catching signage from Carbon Ink.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Explore Services <i class="fas fa-arrow-right"></i></a>
+                <a href="#portfolio" class="btn btn-outline">View Our Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Specializing in high-quality vehicle wraps, custom decals, and professional business signage</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Vehicle Wraps</h3>
+                    <p>Full and partial vehicle wraps that transform your car, truck, or fleet into a mobile billboard.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Custom Decals</h3>
+                    <p>High-quality vinyl decals for windows, walls, and any surface you can imagine.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business Signage</h3>
+                    <p>Professional signage solutions for storefronts, offices, and interior branding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section" style="background-color: var(--gray-900); border-top: 1px solid #374151; border-bottom: 1px solid #374151;">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Carbon Ink</h2>
+                <p>Learn more about our expertise and commitment to quality</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                <div>
+                    <p style="color: var(--gray-300); margin-bottom: 1rem; font-size: 1.125rem;">
+                        At Carbon Ink, we're not just creating signs and wraps—we're crafting visual identities that make your brand unforgettable. With years of experience in the industry, our team combines artistic vision with technical precision to deliver exceptional results.
+                    </p>
+                    <p style="color: var(--gray-300); margin-bottom: 2rem; font-size: 1.125rem;">
+                        We believe that every project deserves attention to detail, from the initial concept through to the final installation. Whether you need a simple decal or a complete fleet wrap, we'll work with you to create something that truly represents your brand.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--cyan); margin-top: 0.25rem;"></i>
+                            <span>Local expertise with a 100% 5-star rating</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--cyan); margin-top: 0.25rem;"></i>
+                            <span>Satisfaction guaranteed on every project</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--cyan); margin-top: 0.25rem;"></i>
+                            <span>Free consultations and design mockups</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-panel">
+  <div class="experience-content">
+    <div class="experience-number">25+</div>
+    <div class="experience-label">Years of Experience</div>
+    <p class="experience-text">
+      Trusted by local businesses for premium signage, vehicle wraps,
+      and branding solutions built to last.
+    </p>
+  </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>See some of our recent projects that showcase our design expertise and attention to detail</p>
+            </div>
+            
+            <!-- Portfolio Carousel -->
+            <div class="portfolio-carousel">
+                <div class="portfolio-slide">
+                    <img id="current-portfolio-image" src="polacat.jpg" alt="Polacat Business Cards" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 id="current-portfolio-title">Polacat Business Cards</h3>
+                        <p id="current-portfolio-desc">Elegant business card design featuring the Polacat brand identity with minimalist cat logo.</p>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" id="next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots">
+                    <button class="dot active"></button>
+                    <button class="dot"></button>
+                    <button class="dot"></button>
+                    <button class="dot"></button>
+                </div>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="polacat.jpg" alt="Polacat Business Cards">
+                    <div class="portfolio-item-content">
+                        <h4>Polacat Business Cards</h4>
+                        <p>Elegant business card design featuring the Polacat brand identity with minimalist cat logo.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="truck.jpg" alt="Harbor Hauling Trailer Wrap">
+                    <div class="portfolio-item-content">
+                        <h4>Harbor Hauling Trailer Wrap</h4>
+                        <p>Bold blue lettering on black trailer for high visibility and professional appearance.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="unnamed (1).jpg" alt="Baseline Supplement Packaging">
+                    <div class="portfolio-item-content">
+                        <h4>Baseline Supplement Packaging</h4>
+                        <p>Clean, modern packaging design for dietary supplements with vibrant color-coded labels.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="unnamed.jpg" alt="Art Green Care Truck">
+                    <div class="portfolio-item-content">
+                        <h4>Art Green Care Truck Wrap</h4>
+                        <p>Professional vehicle wrap featuring company logo, services, and contact information.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="norman.jpg" alt="Norman Design Group Wall Installation">
+                    <div class="portfolio-item-content">
+                        <h4>Norman Design Group Wall Installation</h4>
+                        <p>Sleek logo signage designed to elevate Norman Design Group’s creative workspace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to transform your vehicle or business? Contact us today!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Our Location</h4>
+                            <p>1345 W 21st St<br>San Pedro, CA 90732</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>(310) 938-3843</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>j.rdesigngroup@yahoo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Business Hours</h4>
+                            <div class="hours-list">
+                                <div class="hours-row">
+                                    <span>Monday</span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Tuesday</span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Wednesday </span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Thursday</span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Friday</span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Saturday</span>
+                                    <span> 8 AM – 5 PM</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Sunday</span>
+                                    <span class="closed"> Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Follow Us on Instagram</h4>
+                            <a href="https://www.instagram.com/jakeunsworthart/?hl=en" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: underline;">
+                                @jakeunsworthart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Request a Quote</h3>
+                    <form action="https://formspree.io/f/xbdlppgl" method="POST">
+
+  <!-- Optional email subject -->
+  <input type="hidden" name="_subject" value="New Carbon Ink Quote Request">
+
+  <div class="form-group">
+    <label>Name</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Your name"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      placeholder="your@email.com"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label>Service Interested In</label>
+    <select name="service" class="form-control">
+      <option>Vehicle Wraps</option>
+      <option>Custom Decals</option>
+      <option>Business Signage</option>
+      <option>All Services</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+    <textarea
+      name="message"
+      class="form-control"
+      placeholder="Tell us about your project..."
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">
+    Send Message
+  </button>
+
+</form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-circle" style="width: 2rem; height: 2rem; font-size: 0.875rem;">CI</div>
+                    <span style="font-size: 1.25rem; font-weight: 700;">Carbon Ink</span>
+                </div>
+                <div class="footer-text">
+                    <p>© 2026 Carbon Ink. All rights reserved.</p>
+                    <p>Professional Signage & Vehicle Wrap Specialists</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Portfolio carousel functionality
+        const portfolioItems = [
+            {
+                image: "polacat.jpg",
+                title: "Polacat Business Cards",
+                description: "Elegant business card design featuring the Polacat brand identity with minimalist cat logo."
+            },
+            {
+                image: "truck.jpg",
+                title: "Harbor Hauling Trailer Wrap",
+                description: "Bold blue lettering on black trailer for high visibility and professional appearance."
+            },
+            {
+                image: "unnamed (1).jpg",
+                title: "Baseline Supplement Packaging",
+                description: "Clean, modern packaging design for dietary supplements with vibrant color-coded labels."
+            },
+            {
+                image: "unnamed.jpg",
+                title: "Art Green Care Truck Wrap",
+                description: "Professional vehicle wrap featuring company logo, services, and contact information."
+            },
+            {
+                image: "norman.jpg",
+                title: "Norman Design Group Wall Installation",
+                description: "Sleek logo signage designed to elevate Norman Design Group’s creative workspace."
+            }
+        ];
+
+        let currentIndex = 0;
+        const currentImage = document.getElementById('current-portfolio-image');
+        const currentTitle = document.getElementById('current-portfolio-title');
+        const currentDesc = document.getElementById('current-portfolio-desc');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function updateCarousel() {
+            const item = portfolioItems[currentIndex];
+            currentImage.src = item.image;
+            currentTitle.textContent = item.title;
+            currentDesc.textContent = item.description;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % portfolioItems.length;
+            updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+    
+    </script>
+</body>
+</html>
+
